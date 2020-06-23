@@ -60,5 +60,8 @@ jobs:
           MIX_ENV: test
       - name: Run tests
         run: mix test
-      - run: erl -eval '{ok, Version} = file:read_file(filename:join([code:root_dir(), "releases", erlang:system_info(otp_release), "OTP_VERSION"])), io:fwrite(Version), halt().' -noshell
-      - run: elixir -v
+
+      - name: Print Erlang/OTP version info
+        run: erl -v -eval '{ok, Version} = file:read_file(filename:join([code:root_dir(), "releases", erlang:system_info(otp_release), "OTP_VERSION"])), io:fwrite(Version), halt().'
+      - name: Print Elixir version info
+        run: elixir -v
