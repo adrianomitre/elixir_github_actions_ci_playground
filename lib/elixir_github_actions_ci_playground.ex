@@ -1,6 +1,6 @@
 defmodule ElixirGithubActionsCiPlayground do
   @moduledoc """
-  Documentation for `ElixirGithubActionsCiPlayground`.
+  Documentation for ElixirGithubActionsCiPlayground.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule ElixirGithubActionsCiPlayground do
 
   ## Examples
 
-      iex> ElixirGithubActionsCiPlayground.hello()
+      iex> ElixirGithubActionsCiPlayground.hello
       :world
 
   """
