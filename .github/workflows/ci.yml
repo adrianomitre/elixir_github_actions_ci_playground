@@ -1,4 +1,4 @@
-name: "CI Tests"
+name: CI Tests
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: "[${{matrix.otp-version}}/${{matrix.elixir}}] CI Tests [OTP/Elixir]"
+    name: "[${{matrix.otp-version}} / ${{matrix.elixir}}] CI Tests [OTP/Elixir]"
     strategy:
       fail-fast: false
       matrix:
