@@ -10,40 +10,40 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: "[${{matrix.otp}}/${{matrix.elixir}}] CI Tests [OTP/Elixir]"
+    name: "[${{matrix.otp-version}}/${{matrix.elixir}}] CI Tests [OTP/Elixir]"
     strategy:
       fail-fast: false
       matrix:
         include:
-          - otp: 18.3
+          - otp-version: 18.3
             elixir: 1.5.3
-          - otp: 20.3
+          - otp-version: 20.3
             elixir: 1.5.3
-          - otp: 19.3
+          - otp-version: 19.3
             elixir: 1.6.6
-          - otp: 21.3
+          - otp-version: 21.3
             elixir: 1.6.6
-          - otp: 19.3
+          - otp-version: 19.3
             elixir: 1.7.4
-          - otp: 22.3
+          - otp-version: 22.3
             elixir: 1.7.4
-          - otp: 20.3
+          - otp-version: 20.3
             elixir: 1.8.2
-          - otp: 22.3
+          - otp-version: 22.3
             elixir: 1.8.2
-          - otp: 20.3
+          - otp-version: 20.3
             elixir: 1.9.4
-          - otp: 22.3
+          - otp-version: 22.3
             elixir: 1.9.4
-          - otp: 21.3
+          - otp-version: 21.3
             elixir: 1.10.3
-          - otp: 22.3
+          - otp-version: 22.3
             elixir: 1.10.3
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-elixir@v1
         with:
-          otp-version: ${{matrix.otp}}
+          otp-version: ${{matrix.otp-version}}
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
       - run: mix deps.compile
