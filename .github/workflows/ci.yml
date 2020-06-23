@@ -49,13 +49,13 @@ jobs:
       - name: Compile dependencies
         run: mix deps.compile
       - name: Compile application
-        if: matrix.elixir == '1.10.3'
-        run: mix compile --warnings-as-errors
+        if: matrix.elixir != '1.10.3'
+        run: mix compile
         env:
           MIX_ENV: test
       - name: Compile application
-        if: matrix.elixir != '1.10.3'
-        run: mix compile
+        if: matrix.elixir == '1.10.3'
+        run: mix compile --warnings-as-errors
         env:
           MIX_ENV: test
       - run: mix test
