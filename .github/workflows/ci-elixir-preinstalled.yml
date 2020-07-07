@@ -10,25 +10,32 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: "[${{matrix.otp_version}} / ${{matrix.elixir_version}}] CI Tests [OTP/Elixir]"
-    container: hexpm/elixir:${{ matrix.elixir_version }}-erlang-${{ matrix.otp_version }}-alpine-3.11.6
+    container: hexpm/elixir:${{ matrix.elixir_version }}-erlang-${{ matrix.otp_version }}-${{ matrix.os_version }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - otp_version: 18.3.4.11
             elixir_version: 1.5.3
+            os_version: ubuntu-xenial-20200326
           - otp_version: 19.3.6.13
             elixir_version: 1.6.6
+            os_version: alpine-3.11.6
           - otp_version: 19.3.6.13
             elixir_version: 1.7.4
+            os_version: alpine-3.11.6
           - otp_version: 20.3.8.26
             elixir_version: 1.8.2
+            os_version: alpine-3.11.6
           - otp_version: 20.3.8.26
             elixir_version: 1.9.4
+            os_version: alpine-3.11.6
           - otp_version: 21.3.8.16
             elixir_version: 1.10.4
+            os_version: alpine-3.11.6
           - otp_version: 23.0.2
             elixir_version: 1.10.4
+            os_version: alpine-3.11.6
     steps:
       - uses: actions/checkout@v2.3.1
       - run: mix deps.get --only test
